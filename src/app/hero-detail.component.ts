@@ -6,7 +6,7 @@ import { Location }               from '@angular/common';
 import { Hero }         from './hero';
 import { HeroService }  from './hero.service';
 @Component({
-  moduleId: 'module.id',
+  //moduleId: 'module.id', // no need to set in ec6
   selector: 'my-hero-detail',
   templateUrl: 'hero-detail.component.html',
   styleUrls: [ 'hero-detail.component.css' ]

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId: 'module.id',
+  //moduleId: 'module.id', // no need to set in ec6
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>

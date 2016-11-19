@@ -5,7 +5,7 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
-  moduleId: 'module.id',
+  //moduleId: 'module.id', // no need to set in ec6
   selector: 'my-heroes',
   templateUrl: 'heroes.component.html',
   styleUrls: [ 'heroes.component.css' ]
