@@ -10,6 +10,7 @@ import 'rxjs/add/operator/toPromise';
 export class HeroService {
 
   private heroesUrl = 'app/heroes';  // URL to web api
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor (
     private http: Http) { }
@@ -20,15 +21,24 @@ export class HeroService {
                .then(response => response.json().data as Hero[])
                .catch(this.handleError);  }
 
+  getHero(id: number): Promise<Hero> {
+    return this.getHeroes()
+               .then(heroes => heroes.find(hero => hero.id === id));
+  }
+
+  update(hero: Hero): Promise<Hero> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+    return this.http
+    .put(url, JSON.stringify(hero), {headers: this.headers})
+    .toPromise()
+    .then(() => hero)
+    .catch(this.handleError);
+  }
+
   getHeroesSlowly(): Promise<Hero[]> {
     return new Promise<Hero[]>(resolve =>
       setTimeout(resolve, 2000)) // delay 2 seconds
       .then(() => this.getHeroes());
-  }
-
-  getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
-               .then(heroes => heroes.find(hero => hero.id === id));
   }
 
   private handleError(error: any): Promise<any> {
