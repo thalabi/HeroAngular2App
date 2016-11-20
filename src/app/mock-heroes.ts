@@ -1,3 +1,5 @@
+// this file is now replaced by the in-memory-data.service.ts
+
 import { Hero } from './hero';
 
 export var HEROES: Hero[] = [
