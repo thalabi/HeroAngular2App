@@ -23,8 +23,8 @@ import './rxjs-extensions';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }) // replaces Http module
+    HttpModule//,
+    //InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }) // replaces Http module
   ],
   declarations: [
     AppComponent,
